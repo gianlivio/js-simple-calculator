@@ -31,7 +31,30 @@ for(let i = 0; i < operatori.length; i++) {
     operatori[i].addEventListener('click', function() {
         primoOperando = display.innerHTML;
         operatoreScelto = operatori[i].innerHTML;
-        display.innerHTML = '';
+        display.innerHTML = 0;
     })
 
 }
+
+
+
+
+document.querySelector(".orange").addEventListener('click', function() {
+        let secondoOperando = display.innerHTML;
+        let risultato;
+
+        if (operatoreScelto === "+") {
+            risultato = parseInt(primoOperando) + parseInt(secondoOperando);
+        } else if (operatoreScelto === "-") {
+            risultato = parseInt(primoOperando) - parseInt(secondoOperando);
+        } else if (operatoreScelto === "x") {
+            risultato = parseInt(primoOperando) * parseInt(secondoOperando);
+        } else if (operatoreScelto === ":") {
+            if (secondoOperando === "0") {
+                alert("ERRORE");
+                return;
+            }
+            risultato = parseInt(primoOperando) / parseInt(secondoOperando);
+        }
+        display.innerHTML = risultato.toString();
+})

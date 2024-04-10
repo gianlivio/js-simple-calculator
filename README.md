@@ -30,6 +30,12 @@ quando si clicca su un operatore, salvare l'operatore cliccato e il primo operan
 aggiungere event listener al pulsante =
 quando si clicca su =, salvare il secondo operando, effetuare il calcolo corretto in base all'operatore selezionato e visualizzare il risultato in alto
 
+- Selezionare il Pulsante "="
+- Aggiungere Event Listener
+- Salvare il Secondo Operando
+- Effettuare il Calcolo
+- Visualizzare il Risultato
+
 
 
 #MILESTONE 4
