@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* common */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: white;
+}
+
+/* contenitore generico */
+
+.calculator {
+    width: 250px;
+   
+}
+
+/* intestazione con logo */
+.header {
+    background-color: rgb(228, 27, 27);
+    color: #333;
+    text-align: center;
+    font-family: 'Seven Segment';
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+/* display */
+.display {
+    background-color: black;
+    padding: 20px;
+}
+
+/* numeri display */
+.results {
+    font-size: 40px;
+    text-align: right;
+    font-family: 'Seven Segment';
+    color: lime;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* tastierino */
+.tastierino {
+    padding: 1px;
+    padding-bottom: 10px;
+    display: flex;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+/* colonna sinistra */
+.left-keys {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* colonna destra */
+.right-keys {
+    display: flex;
+    flex-direction: column;
+}
+
+/* tasti */
+.button {
+    padding:15px;
+
+    width: 60px;
+    height: 60px;
+    font-family: 'Seven Segment';
+    margin: 1px;
+    font-size: 25px;
+    background-color: #e0e0e0;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+
+/* tasto 0 */
+.double {
+    width: 120px; 
+}
+
+/* tasti arancioni */
+.orange {
+    background-color: orange;
+    color: white;
+}
+
+/* tasti azzurri */
+.blue {
+    background-color: #6ea8d2;
+    color: white;
+}
+
+
+
+
