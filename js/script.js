@@ -22,6 +22,9 @@ for (let i = 0; i < keyElems.length; i++) {
 
 
 
+
+
+
 let primoOperando = '';
 let operatoreScelto = '';
 
@@ -35,6 +38,10 @@ for(let i = 0; i < operatori.length; i++) {
     })
 
 }
+
+
+
+
 
 
 
@@ -58,3 +65,18 @@ document.querySelector(".orange").addEventListener('click', function() {
         }
         display.innerHTML = risultato.toString();
 })
+
+
+
+
+
+
+
+
+
+
+document.querySelector('.button.orange.c').addEventListener('click', function() {
+    display.innerHTML = "0";
+    primoOperando = '';
+    operatoreScelto = '';
+});
