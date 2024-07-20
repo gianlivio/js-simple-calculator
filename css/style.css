@@ -4,104 +4,99 @@
     box-sizing: border-box;
 }
 
-/* common */
-body {
+main {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: white;
+    font-family: sans-serif;
 }
-
-/* contenitore generico */
 
 .calculator {
-    width: 250px;
-   
+    border: 1px solid #eee;
+    border-radius: 10px;
+    width: 300px;
+    background: linear-gradient(270deg, rgba(238,238,238,1) 0%, rgba(204,204,204,1) 100%);}
+
+#logo {
+    padding: 30px;
+    display: flex;
+    justify-content: center;
 }
 
-/* intestazione con logo */
-.header {
-    background-color: rgb(228, 27, 27);
-    color: #333;
-    text-align: center;
-    font-family: 'Seven Segment';
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+#result {
+    color: #09d297;
+    background-color: #000;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: right;
+    height: 80px;
+    line-height: 80px;
+    font-family: 'Seven Segment', sans-serif;
+    font-size: 40px;
+    overflow: hidden;
 }
 
-/* display */
-.display {
-    background-color: black;
+.buttons {
+    display: flex;
     padding: 20px;
 }
 
-/* numeri display */
-.results {
-    font-size: 40px;
-    text-align: right;
-    font-family: 'Seven Segment';
-    color: lime;
-    display: flex;
-    justify-content: flex-end;
-}
-
-/* tastierino */
-.tastierino {
-    padding: 1px;
-    padding-bottom: 10px;
-    display: flex;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-}
-
-/* colonna sinistra */
-.left-keys {
+.row {
     display: flex;
     flex-wrap: wrap;
+    gap: 10px;
 }
 
-/* colonna destra */
-.right-keys {
-    display: flex;
-    flex-direction: column;
+button {
+    padding: 6px 10px;
+    font-size: 20px;
+    font-family: "Michroma", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    background-color: #bbb;
+    border: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 2px solid #888;
+    border-left: 2px solid #888;
 }
 
-/* tasti */
-.button {
-    padding:15px;
-
-    width: 60px;
-    height: 60px;
-    font-family: 'Seven Segment';
-    margin: 1px;
-    font-size: 25px;
-    background-color: #e0e0e0;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 15px;
+button:active {
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+    border-top-color: #888;
+    border-right-color: #888;
+    /* il margin-top serve per evitare che on hover il pulsante si sposti */
+    margin-top:2px;
 }
 
-/* tasto 0 */
-.double {
-    width: 120px; 
+.numbers {
+    flex: 4;
 }
 
-/* tasti arancioni */
-.orange {
-    background-color: orange;
+.operators {
+    flex: 1;
+}
+
+.numbers button {
+    flex-basis: calc(33% - 10px);
+}
+
+.numbers button.large {
+    flex-basis: calc(66% - 10px);
+}
+
+.operators button {
+    background-color: #77A8B0;
     color: white;
 }
 
-/* tasti azzurri */
-.blue {
-    background-color: #6ea8d2;
+button.orange {
+    background: #ff9f0a;
     color: white;
 }
-
-
-
-

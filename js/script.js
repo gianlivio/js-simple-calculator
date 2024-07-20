@@ -1,82 +1,85 @@
-const keyElems = document.querySelectorAll(".button");
-const display = document.querySelector(".results");
+const numberButtons = document.querySelectorAll(".number-btn"); // NodeList ~ array di elementi HTML (bottoni)
+// console.log(numbesrButtons);
 
-for (let i = 0; i < keyElems.length; i++) {
-    const curElem = keyElems[i];
+const operatorButtons = document.querySelectorAll(".operator-btn"); // NodeList ~ array di elementi HTML (bottoni)
 
-    curElem.addEventListener('click', function() {
-        const valore = curElem.textContent;
+const calculateButton = document.getElementById("calculate"); // object -> elemento HTML bottone =
 
-        
-        if (!isNaN(valore) || valore === "0") {
-            if (display.innerHTML === "0") {
-                display.innerHTML = valore;
-            } else {
-                display.innerHTML += valore;
-            }
-        }
-    });
+const resetButton = document.getElementById("reset"); // object -> elemento HTML
+
+const resultElem = document.getElementById("result"); // object -> element HTML che è il div con lo 0 inizialmente
+
+// Variabili globali di stato del calcolo
+let firstOperand = 0;
+let operator = "";
+let secondOperand = 0;
+
+// MILESTONE 1
+for (let i = 0; i < numberButtons.length; i++) {
+    const curButton = numberButtons[i]; // object -> singolo nodo (elemento HTML)
+    // console.log(curButton);
+    curButton.addEventListener("click", handleNumberClick);
 }
 
-
-
-
-
-
-
-
-let primoOperando = '';
-let operatoreScelto = '';
-
-const operatori = document.querySelectorAll('.blue');
-
-for(let i = 0; i < operatori.length; i++) {
-    operatori[i].addEventListener('click', function() {
-        primoOperando = display.innerHTML;
-        operatoreScelto = operatori[i].innerHTML;
-        display.innerHTML = 0;
-    })
-
+// MILESTONE 2
+for (let i = 0; i < operatorButtons.length; i++) {
+    const curButton = operatorButtons[i]; // object -> elemebto HTML del bottone
+    console.log(curButton);
+    curButton.addEventListener("click", handleOperatorClick);
 }
 
+// MILESTONE 3
+calculateButton.addEventListener("click", handleCalculateClick);
 
+// MILESTONE 4
+resetButton.addEventListener("click", reset);
 
+/////////////
+// Non pure functions
+function handleNumberClick() {
+    console.log(this); // this è l'elemento che è stato cliccato
+    const clickedNumber = this.innerText; // string
+    console.log(clickedNumber, typeof clickedNumber);
+    if (resultElem.innerText === "0") {
+        resultElem.innerText = clickedNumber;
+    } else {
+        resultElem.innerText += clickedNumber;
+    }
+}
 
+function handleOperatorClick() {
+    console.log(this); // this è l'elemento che è stato cliccato
+    // Salvare l'operatore
+    // operator = this.innerText;
+    operator = this.dataset.operator;
+    // Salvare il primo operando
+    firstOperand = parseInt(resultElem.innerText);
+    // Risettare il numero in alto
+    resultElem.innerText = 0;
 
+    console.log(operator, firstOperand);
+}
 
-
-
-document.querySelector(".orange").addEventListener('click', function() {
-        let secondoOperando = display.innerHTML;
-        let risultato;
-
-        if (operatoreScelto === "+") {
-            risultato = parseInt(primoOperando) + parseInt(secondoOperando);
-        } else if (operatoreScelto === "-") {
-            risultato = parseInt(primoOperando) - parseInt(secondoOperando);
-        } else if (operatoreScelto === "x") {
-            risultato = parseInt(primoOperando) * parseInt(secondoOperando);
-        } else if (operatoreScelto === ":") {
-            if (secondoOperando === "0") {
-                alert("ERRORE");
-                return;
-            }
-            risultato = parseInt(primoOperando) / parseInt(secondoOperando);
+function handleCalculateClick() {
+    // salvare il secondo operando
+    secondOperand = parseInt(resultElem.innerText);
+    console.log(firstOperand, secondOperand, operator);
+    // Controllo che non sia ladivisione per 0
+    if (operator !== "") {
+        if (operator === "divisione" && secondOperand === 0) {
+            resultElem.innerHTML = "ERRORE: DIVISIONE PER 0";
+        } else {
+            // effetuare il calcolo
+            const result = calculate(firstOperand, secondOperand, operator);
+            // visualizzare il risultato in alto
+            resultElem.innerText = result;
         }
-        display.innerHTML = risultato.toString();
-})
+    }
+}
 
-
-
-
-
-
-
-
-
-
-document.querySelector('.button.orange.c').addEventListener('click', function() {
-    display.innerHTML = "0";
-    primoOperando = '';
-    operatoreScelto = '';
-});
+function reset() {
+    firstOperand = 0;
+    operator = "";
+    secondOperand = 0;
+    resultElem.innerText = 0;
+}
