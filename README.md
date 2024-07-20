@@ -10,11 +10,6 @@ Welcome to the **Simple Calculator Project**! This project is a basic calculator
 - **Clear Function**: Start fresh with the clear button. 🧼
 - **Responsive Design**: Works perfectly on all devices, from desktop to mobile. 📱💻
 
-## 📸 Screenshots
-
-Check out how cool our calculator looks!
-
-![Calculator Interface](img/supercalc.png)
 
 ## 🛠️ Technologies Used
 
